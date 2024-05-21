@@ -71,7 +71,7 @@ function fillU(){
     const cells = grid.getElementsByTagName("td");
     for (let cell of cells) 
     {
-        if (cell.style.backgroundColor === "white") 
+        if (cell.style.backgroundColor === "" || cell.style.backgroundColor === "white") 
             {
                 cell.style.backgroundColor = colorSelected;
             }
