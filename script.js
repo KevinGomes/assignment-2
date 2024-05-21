@@ -25,8 +25,6 @@ function addR() {
 function addC() {
     const grid = document.getElementById("grid");
     const rows = grid.getElementsByTagName("tr");
-    const isEmpty = document.querySelectorAll("#grid tr").length < 0;
-    console.log(isEmpty);
     if (numRows === 0) {
         addR();
     } else {
@@ -49,7 +47,14 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    const grid = document.getElementById("grid");
+    if (numCols > 0) {
+        const rows = grid.getElementsByTagName("tr");
+        for (let row of rows) {
+            row.deleteCell(numCols - 1);
+        }
+        numCols--;
+    }
 }
 
 // Set global variable for selected color
