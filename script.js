@@ -15,6 +15,7 @@ function addR() {
     const newRow = document.createElement("tr");
     for (let i = 0; i < numCols; i++) {
         const newCell = document.createElement("td");
+        newCell.onclick = () => colorCell(newCell);
         newRow.appendChild(newCell);
     }
     grid.appendChild(newRow);
@@ -30,6 +31,7 @@ function addC() {
     } else {
         for (let row of rows) {
             const newCell = document.createElement("td");
+            newCell.onclick = () => colorCell(newCell);
             row.appendChild(newCell);
         }
         numCols++;
@@ -84,4 +86,9 @@ function fillAll(){
 // Clear all cells
 function clearAll(){
     alert("Clicked Clear All"); // Replace this line with your code.
+}
+
+// Color a single cell
+function colorCell(cell) {
+    cell.style.backgroundColor = colorSelected;
 }
