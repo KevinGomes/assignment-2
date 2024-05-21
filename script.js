@@ -1,13 +1,16 @@
 // Declare global variables
-//if grid is empty, 
-//addR and addC should always create 1 cell
-let numRows = 1;
-let numCols = 1;
+let numRows = 0;
+let numCols = 0;
 let colorSelected; 
 
 
 // Add a row
+//if grid is empty, 
+//addR and addC should always create 1 cell
 function addR() {
+    if (numCols === 0) {
+        numCols++;
+    }
     const grid = document.getElementById("grid");
     const newRow = document.createElement("tr");
     for (let i = 0; i < numCols; i++) {
@@ -20,7 +23,19 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    const grid = document.getElementById("grid");
+    const rows = grid.getElementsByTagName("tr");
+    const isEmpty = document.querySelectorAll("#grid tr").length < 0;
+    console.log(isEmpty);
+    if (numRows === 0) {
+        addR();
+    } else {
+        for (let row of rows) {
+            const newCell = document.createElement("td");
+            row.appendChild(newCell);
+        }
+        numCols++;
+    }
 }
 
 // Remove a row
