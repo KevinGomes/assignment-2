@@ -60,7 +60,15 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    const grid = document.getElementById("grid");
+    const cells = grid.getElementsByTagName("td");
+    for (let cell of cells) 
+    {
+        if (cell.style.backgroundColor === "" || cell.style.backgroundColor === "white") 
+            {
+                cell.style.backgroundColor = colorSelected;
+            }
+    }
 }
 
 // Fill all cells
