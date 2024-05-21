@@ -45,6 +45,9 @@ function removeR() {
         grid.deleteRow(numRows - 1);
         numRows--;
     }
+    if(numRows === 0) {
+        resetGrid();
+    }
 }
 
 // Remove a column
@@ -56,6 +59,9 @@ function removeC() {
             row.deleteCell(numCols - 1);
         }
         numCols--;
+    }
+    if (numCols === 0) {
+        resetGrid();
     }
 }
 
@@ -99,4 +105,12 @@ function clearAll(){
 // Color a single cell
 function colorCell(cell) {
     cell.style.backgroundColor = colorSelected;
+}
+
+//reset grid
+function resetGrid(){
+    const grid = document.getElementById("grid");
+    grid.innerHTML = "";
+    numCols=0;
+    numRows=0;
 }
