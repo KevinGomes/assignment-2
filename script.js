@@ -71,7 +71,7 @@ function fillU(){
     const cells = grid.getElementsByTagName("td");
     for (let cell of cells) 
     {
-        if (cell.style.backgroundColor === "" || cell.style.backgroundColor === "white") 
+        if (cell.style.backgroundColor === "white") 
             {
                 cell.style.backgroundColor = colorSelected;
             }
@@ -89,7 +89,11 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    const grid = document.getElementById("grid");
+    const cells = grid.getElementsByTagName("td");
+    for (let cell of cells) {
+        cell.style.backgroundColor = "white";
+    }
 }
 
 // Color a single cell
